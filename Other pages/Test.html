@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/Photos/ico.png">
+  <style>
+    .nav li {
+      border: 6px solid #998d36;
+      border-collapse: collapse;
+      border-width: 50%;
+      background-color: Yellow;
+      margin: 0;
+      float: left
+    }
+
+    .nav ul {
+      background-color: yellow;
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px
+    }
+
+    .nav a {
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      display: block;
+      padding: 16px;
+
+
+
+    }
+
+    .nav a:hover {
+      text-decoration: none;
+      color: white;
+      background-color: #29280b;
+      padding: 20px
+    }
+
+
+
+    .navtest li {
+      border: 3px solid black;
+      float: left;
+
+
+    }
+
+    .hey {
+      background-color: yellow
+    }
+
+    .blog_test {
+      float: right;
+      height: 500px;
+      width: 350px;
+      display: inline-block;
+      overflow-y: scroll;
+      border: 5px solid red;
+    }
+
+    .blog_test table {
+      border-collapse: separate;
+
+    }
+
+    .blog_test td {
+      width: 350px;
+      length: 500px;
+      border: 5px dashed purple;
+    }
+
+    .blog_test td:hover {
+      background-color: grey;
+    }
+
+    .Anim-test {
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      border: 2px solid #f4511e;
+      color: #000000;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      box-shadow: 6px 6px 50px #000000
+    }
+
+    .Anim-test:hover {
+      padding: 50px;
+      width: 250px;
+      background-color: blue;
+      transition: 1s;
+      color: white;
+    }
+
+    .Anim-test:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0s
+    }
+
+    .Commentbox {
+      border: 1px solid black;
+      width: 175px
+    }
+
+    .date {
+      color: #4d4d4d;
+      font-size: 87%;
+      border-bottom: .5px solid black;
+    }
+  </style>
+
+
+</head>
+
+<body>bu
+  <h1 style="text-align:center;margin:-10px;padding:0px;"> Test</h1>
+
+
+  <div class="nav">
+    <ul style="list-style-type:none;">
+
+      <li><a href="https://enterdimensional.neocities.org/">Main Page</a></li>
+      <li><a href="Enterdimensional.html">What im working on</a></li>
+      <li><a href="About">About</a></li>
+
+
+    </ul>
+  </div>
+  <br>
+
+  <div class="blog_test">
+    <table>
+      <tr>
+        <td> hellaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+      </tr>
+      <tr>
+        <td> hello </td>
+      </tr>
+      <tr>
+        <td> hello </td>
+      </tr>
+      <tr>
+        <td> hello </td>
+      </tr>
+    </table>
+  </div>
+
+  <input type="button" onClick="document.getElementById('middle').scrollIntoView();" value="Experimental">
+
+  <!-- <div class = "hey" style = "float:right;background-color:blue;color:white ;height:1000px;overflow:hidden;width:250px;">
+    <div style = "border:4px solid red;">hello<br>hello</div> 
+    </div> 
+    <br> -->
+
+  hello
+  <!--<video control>-->
+
+  <!--<source src="movie.mp4" type="video/mp4">>-->
+
+  <!--This file format is not supported in your browser-->
+
+  <!--</video>-->
+
+  <p> Hi this is for me to test Html stuff
+
+
+  <table>
+    <tr>
+      <td> table</td>
+
+
+
+
+
+    </tr>
+  </table>
+
+  This is a test for animations(I stole the style though)
+  <button class="Anim-test"> Hello </button>
+  <br><br>
+
+  <button onclick="load_json()">Get Jsondata</button>
+  <button onclick="data_updater()">Load data</button>
+  <button onclick="comment_loader()">Load comments</button>
+  <br><br>
+
+  <p id="output">output lo <br></p>
+
+   
+ </form>
+
+  Comments system test
+
+
+  <br><br><br>
+  <div style="Font-weight:bold">
+    Comments:
+  </div>
+  <div class="input">
+    <input id="input" type="text" placeholder="Comment..."><br>
+    <button type="submit" Onclick="clicked()">Submit</button>
+  </div>
+  <div id="Commentsection">
+
+    <div class="Commentbox">
+      <div class="date">10 years ago</div>
+      <div class="Comment">Hello what a great day!</div>
+    </div>
+
+  </div>
+
+  <script src="/Json_saves/Jquery.js"> </script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+  <script>
+    //type="module" src="/Scripts/Updater.js" 
+    var darta
+    load_json()
+
+    function clicked() {
+      const now = new Date
+      const actdate = document.createTextNode(update_date())
+      const CommentBox = document.createElement("div");
+      const date = document.createElement("div");
+      const comment = document.createElement("div");
+      const input = document.createTextNode(document.getElementById("input").value);
+      const section = document.getElementById("Commentsection");
+      if (input.length == 0) {
+        alert("Please do not submit an Empty comment")
+
+      }
+      else {
+        CommentBox.classList.add("Commentbox");
+        date.classList.add("date");
+        comment.appendChild(input);
+        date.appendChild(actdate);
+        CommentBox.appendChild(date);
+        CommentBox.appendChild(comment);
+        // console.log(CommentBox)
+        // console.log(update_date())
+        section.appendChild(CommentBox);
+
+      }
+
+
+
+    }
+    function update_date() {
+      const date = new Date().toDateString()
+      return date
+    }
+
+
+
+  function data_tester(){
+
+    console.log("giasfd")
+    
+  }
+
+
+    function data_updater() { //derelict  does not work because its a faking security risk 
+      update_JSON()
+      data_tester()
+      var testdata = {
+        "hello": "Hello"
+      }
+
+
+      console.log("hi")
+      darta["3"] = testdata
+      console.log(darta)
+
+   
+      // $.ajax({ url: '/Scripts/Updater.php',
+      //          data: {action: 'test'},
+      //          type: 'post',
+      //          success: function(output) {
+      //                     console.log("gi")
+      //                       // console.log(output);
+      //                   }
+      // });
+
+
+      // darta["3"] = testdata
+      // console.log(darta)
+      // JSON.stringify(darta)
+
+
+
+      // fetch("/Json_saves/Comments.json")
+
+      // .then((res) => {
+      //     if (!res.ok) {
+      //         throw new Error
+      //             (`HTTP error! Status: ${res.status}`);
+      //     }
+
+      //   return res.json()
+      // })
+      // .then((data) => {
+      // // console.log(data["Comment0"])
+      // let darta = data
+      // darta["3"] = testdata
+      // console.log(darta , "this is darta")
+
+      // // get_json(darta)
+      // })
+      // .catch((error) => 
+      //       console.error("Unable to fetch data:", error));
+
+
+
+      // try { 
+      //   const response = await fetch("/Json_saves/Comments.json", {
+      //     method: "POST", // or 'PUT'
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(darta),
+      //   });
+
+      //   const result = await response.json();
+      //   console.log("Success:", result);
+      // } catch (error) {
+      //   console.error("Error:", error);
+      // }
+
+
+
+    }
+
+
+
+    function comment_sorter() {
+
+
+    }
+
+
+
+    function comment_loader() {
+
+      // console.log(darta)
+
+      // console.log(Object.keys(darta).length)
+      var nokeys = Object.keys(darta).length
+      // console.log( Object.keys(darta).map((key) => [key, darta[key]]),"Hello")
+
+
+      const section = document.getElementById("Commentsection");
+
+
+      for (let i = 1; i < nokeys + 1; i++) {
+        var CommentBox = document.createElement("div");
+        var date = document.createElement("div");
+        var comment = document.createElement("div");
+        var datadate = document.createTextNode(darta[i.toString()]["date"]);
+        var datacomment = document.createTextNode(darta[i.toString()]["comment"]); // get the json data
+
+        CommentBox.classList.add("Commentbox");
+        date.classList.add("date");
+
+
+
+        date.appendChild(datadate);
+        CommentBox.appendChild(date);
+        comment.appendChild(datacomment);
+        CommentBox.appendChild(comment);
+        section.appendChild(CommentBox);
+      }
+    }
+    // console.log(load_json()["Comment0"])
+    // console.log(load_json()["Comment0"])
+    // console.log(darta["Comment0"])       
+
+
+    function hello() {
+      console.log(darta)
+
+    }
+
+    function get_json(json) {
+      darta = json
+      comment_loader()
+    }
+
+    function load_json() { //Save the Comment data in a json file
+
+
+      fetch("/Json_saves/Comments.json")
+
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error
+              (`HTTP error! Status: ${res.status}`);
+          }
+
+          return res.json()
+        })
+        .then((data) => {
+          // console.log(data["Comment0"])
+          let darta = data
+          console.log(darta, "this is darta")
+          get_json(darta)
+        })
+        .catch((error) =>
+          console.error("Unable to fetch data:", error));
+
+
+    }
+  </script>
+  <script type="text/javascript" src="/Scripts/Updater.js"> </script>
+
+</body>
+
+</html>
